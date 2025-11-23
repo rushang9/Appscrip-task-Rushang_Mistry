@@ -1,66 +1,223 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ProductCard from "./components/ProductCard";
+import "./page.css"; 
+
+export default function Page() {
+  const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+
+  const [category, setCategory] = useState("all");
+  const [priceLimit, setPriceLimit] = useState(200);
+
+ 
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setFiltered(data);
+      });
+  }, []);
+
+  const addToCart = (product) => setCart([...cart, product]);
+  const addToWishlist = (product) => setWishlist([...wishlist, product]);
+
+  const applyFilters = () => {
+    let result = products;
+
+    if (category !== "all") {
+      result = result.filter((p) => p.category === category);
+    }
+
+    result = result.filter((p) => p.price <= priceLimit);
+
+    setFiltered(result);
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Header cartCount={cart.length} wishlistCount={wishlist.length} />
+
+      <div className="page-container">
+       
+        <div className="filter-container">
+          <h2 className="filter-title">Filters</h2>
+
+          <div className="filter-box">
+            
+            <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+              <div className="filter-section">
+              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men</option>
+                <option value="women's clothing">Women</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+              </select>
+            </div>
+
+           
+            <div className="filter-section">
+              <label className="filter-label">
+                Max Price: <span>${priceLimit}</span>
+              </label>
+
+              <input
+                type="range"
+                min="10"
+                max="500"
+                value={priceLimit}
+                onChange={(e) => setPriceLimit(e.target.value)}
+                className="filter-range"
+              />
+            </div>
+
+            <button className="apply-btn" onClick={applyFilters}>
+              Apply Filters
+            </button>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="content-area">
+          <h2 className="section-title">Deals (Items under $50)</h2>
+
+          <div className="products-grid">
+            {products
+              .filter((p) => p.price < 50)
+              .map((p) => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  addToCart={addToCart}
+                  addToWishlist={addToWishlist}
+                />
+              ))}
+          </div>
+
+          <h2 className="section-title">Products</h2>
+
+          <div className="products-grid">
+            {filtered.map((p) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                addToCart={addToCart}
+                addToWishlist={addToWishlist}
+              />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+
+      <Footer />
+    </>
   );
 }

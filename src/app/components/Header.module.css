@@ -1,0 +1,35 @@
+.header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .topbar {
+    padding: 6px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left{
+  display: flex;
+  flex-direction: row;
+}
+.logoImg {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.topright {
+  margin-right: 20px;
+  margin-top: 20px;
+}
