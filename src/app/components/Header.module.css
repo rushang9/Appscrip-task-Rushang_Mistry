@@ -1,35 +1,137 @@
 .header {
-    width: 100%;
-    background: #ffffff;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .topbar {
-    padding: 6px;
-    text-align: center;
-    font-size: 14px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .navdiv {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+/* MAIN TOP BAR */
+.topbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* LEFT SIDE (LOGO + LOGO TEXT) */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CENTER LOGO TEXT ON DESKTOP */
+.logoText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ICONS RIGHT SIDE (DESKTOP) */
+.topright {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* DESKTOP ICON GROUP */
+.desktopIcons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* LANGUAGE DROPDOWN */
+.filterheader {
+  padding: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+}
+
+/* HAMBURGER BUTTON HIDDEN ON DESKTOP */
+.menuBtn {
+  display: none;
+  cursor: pointer;
+}
+
+/* NAVBAR COLLAPSE PANEL */
+.navdiv {
   display: flex;
   justify-content: center;
-  align-items: center;
-  max-width: 1200px;
+  margin-top: 10px;
+  transition: max-height 0.4s ease;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.showMenu {
+  max-height: 500px;
+}
+
+/* TITLE BELOW HEADER */
+.titledeals {
+  width: 721px;
   margin: auto;
+  text-align: center;
 }
 
-.left{
-  display: flex;
-  flex-direction: row;
-}
-.logoImg {
-  margin-left: 20px;
-  margin-top: 20px;
+.subtitle {
+  color: #252020;
 }
 
-.topright {
-  margin-right: 20px;
-  margin-top: 20px;
+/* ------------------------- MOBILE RESPONSIVE ------------------------- */
+@media (max-width: 768px) {
+
+  /* Center logo text for mobile */
+  .logoText {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+
+  /* ICONS DISAPPEAR ON MOBILE */
+  .desktopIcons {
+    display: none;
+  }
+
+  .menuBtn {
+    display: block;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ALIGN LEFT SIDE: hamburger + logo together */
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .menuImg{
+    width: 25px;
+    height: 25px;
+  }
+  .logoImg{
+    width: 25px;
+    height: 25px;
+  }
+  /* NAV PANEL MOBILE STYLING */
+  .navdiv {
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 0 20px;
+    border-top: 1px solid #eee;
+  }
+
+  /* Title responsive */
+  .titledeals {
+    width: 100%;
+    padding: 0 20px;
+  }
 }

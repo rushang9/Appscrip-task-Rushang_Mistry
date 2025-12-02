@@ -1,21 +1,19 @@
-// src/components/Navbar/Navbar.jsx
-import Link from "next/link";
+"use client";
 import styles from "./Navbar.module.css";
+import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({ menuOpen, setMenuOpen }) {
   return (
-    <div className={styles.navdiv}>
-    <nav className={styles.navbar}>
-      
-
+    <nav
+      className={`${styles.navbar} ${menuOpen ? styles.open : ""}`}
+      onClick={() => setMenuOpen(false)}
+    >
       <ul className={styles.navLinks}>
-        <li><Link href="/">Shop</Link></li>
-        <li><Link href="/earrings">Skills</Link></li>
-        <li><Link href="/necklaces">Stories</Link></li>
-        <li><Link href="/rings">About</Link></li>
-        <li><Link href="/rings">Contact us</Link></li>
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/products">Products</Link></li>
+        <li><Link href="/about">About</Link></li>
+        <li><Link href="/contact">Contact</Link></li>
       </ul>
     </nav>
-    </div>
   );
 }

@@ -1,29 +1,65 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* HEADER BASE */
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
+/* LEFT SECTION */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-.products-grid {
-  display: grid;
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Desktop logo centered */
+.desktop-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Mobile logo hidden on desktop */
+.mobile-logo {
+  display: none;
+}
+
+/* RIGHT icons */
+.right-icons {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-@media (min-width: 640px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* ======= MOBILE RESPONSIVE ======= */
+@media (max-width: 768px) {
+  /* show mobile logo next to menu */
+  .mobile-logo {
+    display: block;
   }
-}
 
+  /* hide centered desktop logo */
+  .desktop-logo {
+    display: none;
+  }
 
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  .nav-container {
+    justify-content: space-between;
+  }
 }

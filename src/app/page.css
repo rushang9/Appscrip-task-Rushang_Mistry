@@ -45,12 +45,26 @@
 
 .filter-select {
   padding: 10px;
+  padding-top: 15px;
   border: none ;
   border-top: solid 0.5px;
-  font-size: 14px;
+  border-color: #E5E5E5;
+  font-size: 18px;
+  font-weight: bold;
   outline: none;
+  font-family: Simplon Norm;
 }
-
+.filter-select-ideal {
+  padding: 10px;
+  padding-top: 15px;
+  border: none ;
+  border-top: solid 0.5px;
+  border-color: #E5E5E5;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  font-family: Simplon Norm;
+}
 
 
 .filter-range {

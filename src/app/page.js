@@ -52,13 +52,29 @@ export default function Page() {
           <div className="filter-box">
             
             <div className="filter-section">
-              <label className="filter-label">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="filter-select-ideal"
+              >
+                
+                <option value="all">Ideal For</option>
+                
+                <input type="checkbox" id="men"/> Men
+                
+                <input type="checkbox" id="men"/> Woman
+                
+                <input type="checkbox" id="men"/> All
+              </select>
+            </div>
+              <div className="filter-section">
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                
+                <option value="all">Occasion</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -66,13 +82,12 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">Work</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -80,13 +95,12 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">Fabric</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -94,13 +108,12 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">SEGMENT</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -108,13 +121,12 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">SUITABLE FOR</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -122,13 +134,12 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">RAW MATERIAL</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
@@ -136,35 +147,19 @@ export default function Page() {
               </select>
             </div>
               <div className="filter-section">
-              <label className="filter-label">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="filter-select"
               >
-                <option value="all">All Categories</option>
+                <option value="all">PATTERN</option>
                 <option value="men's clothing">Men</option>
                 <option value="women's clothing">Women</option>
                 <option value="jewelery">Jewelery</option>
                 <option value="electronics">Electronics</option>
               </select>
-            </div>
-              <div className="filter-section">
-              <label className="filter-label">Category</label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="filter-select"
-              >
-                <option value="all">All Categories</option>
-                <option value="men's clothing">Men</option>
-                <option value="women's clothing">Women</option>
-                <option value="jewelery">Jewelery</option>
-                <option value="electronics">Electronics</option>
-              </select>
-            </div>
 
-           
+            </div>         
             <div className="filter-section">
               <label className="filter-label">
                 Max Price: <span>${priceLimit}</span>
@@ -185,10 +180,9 @@ export default function Page() {
             </button>
           </div>
         </div>
-
+        
         <div className="content-area">
-          <h2 className="section-title">Deals (Items under $50)</h2>
-
+          
           <div className="products-grid">
             {products
               .filter((p) => p.price < 50)
